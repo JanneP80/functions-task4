@@ -13,7 +13,7 @@ namespace functions_task4
         static void Main(string[] args)
         {
             userinputsten = new int[10];
-            int askednumber;
+            int askednumber = 0;
 
             askednumber = AskTenInts(); // combo for getting largest number and filling array
 
@@ -35,23 +35,26 @@ namespace functions_task4
             // Ask 10 positive integers
             // Ask correction on wrong numbers
             Console.WriteLine("Insert {0} positive numbers: ", loopsize);
-            do
+
+            for (int i = 1; i <= loopsize; i++)
             {
-                for (int i = 0; i < loopsize; i++)
+                do
                 {
                     Console.Write("{0}. ", i);
-                    userinputsten[i] = int.Parse(Console.ReadLine());
-                    if (userinputsten[i] < 0)
+                    userinputsten[i - 1] = int.Parse(Console.ReadLine());
+                    if (userinputsten[i - 1] < 0)
                     {
                         Console.WriteLine("Incorrect input, please try again: ");
                     }
-                    arraypointer++;
-                }
-            } while (userinputsten[arraypointer] < 0);
-            // kysyttävä silmukassa ja oikea numero indeksille
-            // Return the largest
-            return checkedvalue;
 
+                }
+                while (userinputsten[arraypointer] < 0);
+                arraypointer++;
+            }
+                // kysyttävä silmukassa ja oikea numero indeksille
+                // Return the largest
+                return checkedvalue;
+
+            }
         }
     }
-}

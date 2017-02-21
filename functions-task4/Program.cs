@@ -16,14 +16,13 @@ namespace functions_task4
             int askednumber = 0;
 
             askednumber = AskTenInts(); // combo for getting largest number and filling array
-
             Console.WriteLine("You have inputted following numbers: "); // Next print full array
-
             foreach (int i in userinputsten)
             {
                 Console.Write(i + " ");
             }
-            Console.WriteLine("\nAnd largest number was: {0}", askednumber);
+            int maxindex = (Array.IndexOf(userinputsten, askednumber) + 1);
+            Console.WriteLine("\nAnd largest number was: {0}, and it was number {1} you input", askednumber, maxindex);
             Console.ReadKey();
         }
 
@@ -46,16 +45,14 @@ namespace functions_task4
                     {
                         Console.WriteLine("Incorrect input, please try again: ");
                     }
-
                 }
                 while (userinputsten[arraypointer] < 0);
                 arraypointer++;
             }
-            // kysyttävä silmukassa ja oikea numero indeksille
+            // get largest number from array:
             checkedvalue = userinputsten.Max();
                 // Return the largest
                 return checkedvalue;
-
             }
         }
     }

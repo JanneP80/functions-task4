@@ -21,7 +21,7 @@ namespace functions_task4
 
             foreach (int i in userinputsten)
             {
-                Console.WriteLine(i + " ");
+                Console.Write(i + " ");
             }
             Console.WriteLine("\nAnd largest number was: {0}", askednumber);
             Console.ReadKey();
@@ -31,21 +31,27 @@ namespace functions_task4
         {
             int checkedvalue = 0;
             int loopsize = 10;
-            //int arraypointer = 0;
+            int arraypointer = 0;
             // Ask 10 positive integers
             // Ask correction on wrong numbers
             Console.WriteLine("Insert {0} positive numbers: ", loopsize);
-
-            for (int arraypointer = 0; arraypointer < loopsize; arraypointer++)
+            do
             {
-                Console.WriteLine("{0}. ", arraypointer);
-                userinputsten[arraypointer] = int.Parse(Console.ReadLine());
-            }
+                for (int i = 0; i < loopsize; i++)
+                {
+                    Console.Write("{0}. ", i);
+                    userinputsten[i] = int.Parse(Console.ReadLine());
+                    if (userinputsten[i] < 0)
+                    {
+                        Console.WriteLine("Incorrect input, please try again: ");
+                    }
+                    arraypointer++;
+                }
+            } while (userinputsten[arraypointer] < 0);
             // kysyttävä silmukassa ja oikea numero indeksille
-
-
             // Return the largest
             return checkedvalue;
+
         }
     }
 }

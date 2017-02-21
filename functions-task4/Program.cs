@@ -51,7 +51,8 @@ namespace functions_task4
                 while (userinputsten[arraypointer] < 0);
                 arraypointer++;
             }
-                // kysyttävä silmukassa ja oikea numero indeksille
+            // kysyttävä silmukassa ja oikea numero indeksille
+            checkedvalue = userinputsten.Max();
                 // Return the largest
                 return checkedvalue;
 
